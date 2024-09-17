@@ -1,6 +1,6 @@
-# Lunar Shell Contributing Guide
+# TimeWise Contributing Guide
 
-Lunar Shell is a Free and Open Source Software project under the BSD license, it is a tool that is very young in its devlopment and is in continual need of features, fixes, and improvments. To ensure that the codebase is able to maintain a level of integrity, performance, and memory safety some guidelines are in place to ensure your success as a developer and the success of the software as a whole.
+TimeWise is a Free and Open Source Software project under the MIT license. To ensure that the codebase is able to maintain a level of integrity, performance, and memory safety some guidelines are in place to ensure your success as a developer and the success of the software as a whole.
 
 ## Code Style Guidelines
 
@@ -19,27 +19,33 @@ float f = 0.5f;
 incorrect:
 float f = 0.5;
 ```
-- All functions will start lowercase and use snake case
-- If a function name is public facing from a header file prefix it with lush_
-- Static functions are not to be prefixed
-```C
-void example_function() {}
+- All functions will start lowercase and use camel case
+- All classes will start uppercase and use camelcase
+```C++
+void exampleFunction() {}
+class ExampleClass {};
 ```
-- Additionally prefix functions categorically such that it is obvious what the function is for
-```C
-correct:
-void spr_draw();
+- Use the function naming convention for variables too.
+- Avoid unclear abbreviation, favor more explicit variable names.
+```C++
+best:
+clearBuffer
 
-incorrect:
-void draw();
+acceptable:
+clrBuff
+
+worst:
+clBf
 ```
-- Use the same snake case format for variables
-- Avoid unclear abbreviation, favor more explicit variable names
+
 - End all typedefs with _t
 - All defs and enums should be all caps snake case
 - End all recursive functions with _r to ensure safety
-- Error check any function that can fail (malloc, fopen, etc.)
+- Error check any function that can fail
 - Use sized operations as often as possible to avoid buffer overflows ex: strncpy vs strcpy
+- Always favor passing by reference over pointer if possible
+- Make all parameters that don't get modified in the function const for clearer function contracts
+- Always favor C++ std over glibc.
 
 ## PR Guidelines
 
