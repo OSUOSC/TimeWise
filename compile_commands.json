@@ -1,0 +1,178 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-DDEBUG",
+      "-DLINUX",
+      "-Ilib/imgui",
+      "-Ilib/imgui/backends",
+      "-I",
+      "-g",
+      "-std=c++11",
+      "-g",
+      "-Wall",
+      "-Wformat",
+      "-c",
+      "-o",
+      "obj/Linux/Debug/imgui_impl_glfw.o",
+      "lib/imgui/backends/imgui_impl_glfw.cpp"
+    ],
+    "directory": "/home/lanceb/projects/TimeWise",
+    "file": "/home/lanceb/projects/TimeWise/lib/imgui/backends/imgui_impl_glfw.cpp",
+    "output": "/home/lanceb/projects/TimeWise/obj/Linux/Debug/imgui_impl_glfw.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-DDEBUG",
+      "-DLINUX",
+      "-Ilib/imgui",
+      "-Ilib/imgui/backends",
+      "-I",
+      "-g",
+      "-std=c++11",
+      "-g",
+      "-Wall",
+      "-Wformat",
+      "-c",
+      "-o",
+      "obj/Linux/Debug/imgui_impl_opengl3.o",
+      "lib/imgui/backends/imgui_impl_opengl3.cpp"
+    ],
+    "directory": "/home/lanceb/projects/TimeWise",
+    "file": "/home/lanceb/projects/TimeWise/lib/imgui/backends/imgui_impl_opengl3.cpp",
+    "output": "/home/lanceb/projects/TimeWise/obj/Linux/Debug/imgui_impl_opengl3.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-DDEBUG",
+      "-DLINUX",
+      "-Ilib/imgui",
+      "-Ilib/imgui/backends",
+      "-I",
+      "-g",
+      "-std=c++11",
+      "-g",
+      "-Wall",
+      "-Wformat",
+      "-c",
+      "-o",
+      "obj/Linux/Debug/imgui.o",
+      "lib/imgui/imgui.cpp"
+    ],
+    "directory": "/home/lanceb/projects/TimeWise",
+    "file": "/home/lanceb/projects/TimeWise/lib/imgui/imgui.cpp",
+    "output": "/home/lanceb/projects/TimeWise/obj/Linux/Debug/imgui.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-DDEBUG",
+      "-DLINUX",
+      "-Ilib/imgui",
+      "-Ilib/imgui/backends",
+      "-I",
+      "-g",
+      "-std=c++11",
+      "-g",
+      "-Wall",
+      "-Wformat",
+      "-c",
+      "-o",
+      "obj/Linux/Debug/imgui_demo.o",
+      "lib/imgui/imgui_demo.cpp"
+    ],
+    "directory": "/home/lanceb/projects/TimeWise",
+    "file": "/home/lanceb/projects/TimeWise/lib/imgui/imgui_demo.cpp",
+    "output": "/home/lanceb/projects/TimeWise/obj/Linux/Debug/imgui_demo.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-DDEBUG",
+      "-DLINUX",
+      "-Ilib/imgui",
+      "-Ilib/imgui/backends",
+      "-I",
+      "-g",
+      "-std=c++11",
+      "-g",
+      "-Wall",
+      "-Wformat",
+      "-c",
+      "-o",
+      "obj/Linux/Debug/imgui_draw.o",
+      "lib/imgui/imgui_draw.cpp"
+    ],
+    "directory": "/home/lanceb/projects/TimeWise",
+    "file": "/home/lanceb/projects/TimeWise/lib/imgui/imgui_draw.cpp",
+    "output": "/home/lanceb/projects/TimeWise/obj/Linux/Debug/imgui_draw.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-DDEBUG",
+      "-DLINUX",
+      "-Ilib/imgui",
+      "-Ilib/imgui/backends",
+      "-I",
+      "-g",
+      "-std=c++11",
+      "-g",
+      "-Wall",
+      "-Wformat",
+      "-c",
+      "-o",
+      "obj/Linux/Debug/imgui_tables.o",
+      "lib/imgui/imgui_tables.cpp"
+    ],
+    "directory": "/home/lanceb/projects/TimeWise",
+    "file": "/home/lanceb/projects/TimeWise/lib/imgui/imgui_tables.cpp",
+    "output": "/home/lanceb/projects/TimeWise/obj/Linux/Debug/imgui_tables.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-DDEBUG",
+      "-DLINUX",
+      "-Ilib/imgui",
+      "-Ilib/imgui/backends",
+      "-I",
+      "-g",
+      "-std=c++11",
+      "-g",
+      "-Wall",
+      "-Wformat",
+      "-c",
+      "-o",
+      "obj/Linux/Debug/imgui_widgets.o",
+      "lib/imgui/imgui_widgets.cpp"
+    ],
+    "directory": "/home/lanceb/projects/TimeWise",
+    "file": "/home/lanceb/projects/TimeWise/lib/imgui/imgui_widgets.cpp",
+    "output": "/home/lanceb/projects/TimeWise/obj/Linux/Debug/imgui_widgets.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-DDEBUG",
+      "-DLINUX",
+      "-Ilib/imgui",
+      "-Ilib/imgui/backends",
+      "-I",
+      "-g",
+      "-std=c++11",
+      "-g",
+      "-Wall",
+      "-Wformat",
+      "-c",
+      "-o",
+      "obj/Linux/Debug/main.o",
+      "src/main.cpp"
+    ],
+    "directory": "/home/lanceb/projects/TimeWise",
+    "file": "/home/lanceb/projects/TimeWise/src/main.cpp",
+    "output": "/home/lanceb/projects/TimeWise/obj/Linux/Debug/main.o"
+  }
+]
