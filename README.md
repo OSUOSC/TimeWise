@@ -8,7 +8,7 @@ To compile this project you will need glfw development libraries installed on yo
 ```
 GLFW (http://www.glfw.org):
 Linux (apt):
-    apt-get install libglfw-dev
+    apt-get install libglfw3-dev
 Linux (pacman):
     pacman -S glfw
 Mac OS X:
