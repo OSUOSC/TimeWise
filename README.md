@@ -14,7 +14,7 @@ Linux (pacman):
 Mac OS X:
     brew install glfw
 MSYS2:
-    pacman -S --noconfirm --needed mingw-w64-x86_64-toolchain mingw-w64-x86_64-glfw
+    pacman -S --noconfirm --needed mingw-w64-x86_64-toolchain mingw-w64-x86_64-glfw base-devel
 ```
 
 Clone the repo and generate the makefile using [premake5](https://premake.github.io/download/).
