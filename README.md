@@ -8,13 +8,13 @@ To compile this project you will need glfw development libraries installed on yo
 ```
 GLFW (http://www.glfw.org):
 Linux (apt):
-    apt-get install libglfw-dev
+    apt-get install libglfw3-dev
 Linux (pacman):
     pacman -S glfw
 Mac OS X:
     brew install glfw
 MSYS2:
-    pacman -S --noconfirm --needed mingw-w64-x86_64-toolchain mingw-w64-x86_64-glfw
+    pacman -S --noconfirm --needed mingw-w64-x86_64-toolchain mingw-w64-x86_64-glfw base-devel
 ```
 
 Clone the repo and generate the makefile using [premake5](https://premake.github.io/download/).
