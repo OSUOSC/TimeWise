@@ -3,3 +3,5 @@ Makefile
 bin
 obj
 .cache
+x64
+timewise
