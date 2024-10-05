@@ -3,8 +3,10 @@ A desktop app for optimizing your personal study schedule to meet your work life
 
 ## Compiling
 
-To compile this project you will need glfw development libraries installed on your system. Development/compilation for Windows is handled with mingw. If you are using Windows to develop install [MSYS2](https://www.msys2.org/).
+To compile this project you will need glfw development libraries installed on your system. Development/compilation for Windows is handled with Visual Studio 2022. Load the sln into Visual Studio and then download [GLFW](https://www.glfw.org/download). Make sure to install the 64-bit precompile binaries.
+You will then need to set the include and libs directory in your solution settings to match the install location of GLFW on your machine.
 
+Other Systems:
 ```
 GLFW (http://www.glfw.org):
 Linux (apt):
@@ -13,8 +15,6 @@ Linux (pacman):
     pacman -S glfw
 Mac OS X:
     brew install glfw
-MSYS2:
-    pacman -S --noconfirm --needed mingw-w64-x86_64-toolchain mingw-w64-x86_64-glfw base-devel
 ```
 
 Clone the repo and generate the makefile using [premake5](https://premake.github.io/download/).

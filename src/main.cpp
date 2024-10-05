@@ -35,7 +35,11 @@ static void glfw_error_callback(int error, const char* description)
 }
 
 // Main code
+#ifdef _WIN32
+int WinMain(int, char**)
+#else
 int main(int, char**)
+#endif
 {
     glfwSetErrorCallback(glfw_error_callback);
     if (!glfwInit())
