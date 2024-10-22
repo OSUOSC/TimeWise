@@ -18,7 +18,7 @@ Windows:
 ```
 git clone https://github.com/OSUOSC/TimeWise.git
 cd TimeWise
-premake5 vs2022
+./premake5 vs2022
 -- open the .sln file
 ```
 
@@ -26,7 +26,7 @@ Linux:
 ```
 git clone https://github.com/OSUOSC/TimeWise.git
 cd TimeWise
-premake5 gmake
+./premake5 gmake
 make
 ```
 
