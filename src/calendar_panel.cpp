@@ -5,8 +5,6 @@
 #include "imgui.h"
 #include "util.h"
 
-CalendarPanel::CalendarPanel() {}
-
 void CalendarPanel::draw() {
     ImGui::Begin("Calendar");
     ImGuiIO& io = ImGui::GetIO();
@@ -17,13 +15,13 @@ void CalendarPanel::draw() {
     ImGui::RightText(getYear().c_str());
     ImGui::PopFont();
 
-    static ImGuiTableFlags flags = ImGuiTableFlags_Borders;
+    static ImGuiTableFlags flags = ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg;
 
     ImVec2 available_size = ImGui::GetContentRegionAvail();
     int row_count = 5;
-    float row_height = (available_size.y - 24) / row_count;
+    float row_height = (available_size.y - 42) / row_count;
 
-    if (ImGui::BeginTable("calendar", 7, flags, ImVec2(available_size.x, available_size.y)))
+    if (ImGui::BeginTable("calendar", 7, flags, ImVec2(available_size.x, available_size.y - 42)))
     {
         ImGui::TableSetupColumn("SUN");
         ImGui::TableSetupColumn("MON");
