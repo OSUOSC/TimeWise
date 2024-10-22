@@ -5,3 +5,7 @@ obj
 .cache
 x64
 timewise
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
