@@ -29,7 +29,7 @@ defines({ "NDEBUG" })
 optimize("On")
 
 -- Linux-specific setup
-filter("system:linux")
+filter("action:gmake")
 defines({ "LINUX" })
 buildoptions({ "-std=c++11", "-g", "-Wall", "-Wformat" })
 links({ "GL", "glfw" })
@@ -43,29 +43,16 @@ postbuildcommands({
 })
 
 -- Windows-specific setup for Visual Studio
-filter("system:windows")
+filter("action:vs2022")
 defines({ "WINDOWS" })
 buildoptions({ "/std:c++17" }) -- Visual Studio uses MSVC syntax for build options
-links({ "glfw3", "gdi32", "opengl32", "imm32" })
-includedirs({ "lib/imgui", "lib/imgui/backends", "src" }) -- Include source directories for Windows
+links({ "opengl32.lib", "glfw3.lib" })
+includedirs({ "lib/imgui", "lib/imgui/backends", "deps/glfw/include", "src" }) -- Include source directories for Windows
+libdirs({ "deps/glfw/lib" })
 
 -- Post-build command to copy the res folder on Windows
 postbuildcommands({
 	"{COPY} ./res %{cfg.targetdir}\\res",
-	"{COPY} imgui.ini %{cfg.targetdir}/imgui.ini",
-})
-
--- macOS-specific setup
-filter("system:macosx")
-defines({ "MACOS" })
-buildoptions({ "-std=c++11" })
-links({ "OpenGL.framework", "Cocoa.framework", "IOKit.framework", "CoreVideo.framework", "glfw" })
-includedirs({ "/usr/local/include", "/opt/local/include", "/opt/homebrew/include" })
-libdirs({ "/usr/local/lib", "/opt/local/lib", "/opt/homebrew/lib" })
-
--- Post-build command to copy the res folder on macOS
-postbuildcommands({
-	"{COPY} ./res %{cfg.targetdir}/res",
 	"{COPY} imgui.ini %{cfg.targetdir}/imgui.ini",
 })
 
