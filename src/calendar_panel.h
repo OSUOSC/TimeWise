@@ -3,7 +3,6 @@
 
 class CalendarPanel {
 public:
-    CalendarPanel();
     void draw();
 private:
     std::string getMonth();
