@@ -1,3 +1,11 @@
+#include "calendar_panel.h"
+#include "menu_bar.h"
+// Define the lowest year that the picker can select. In this example, '1970' is the Unix epoch.
+#define IMGUI_DATEPICKER_YEAR_MIN 1970
+// Define the highest year that the picker can select.
+#define IMGUI_DATEPICKER_YEAR_MAX 2500
+#include <ImGuiDatePicker.hpp>
+#include <chrono>
 // Dear ImGui: standalone example application for GLFW + OpenGL 3, using programmable pipeline
 // (GLFW is a cross-platform general purpose library for handling windows, inputs, OpenGL/Vulkan/Metal graphics context creation, etc.)
 
@@ -6,7 +14,8 @@
 // - Getting Started      https://dearimgui.com/getting-started
 // - Documentation        https://dearimgui.com/docs (same as your local docs/ folder).
 // - Introduction, links and more at the top of imgui.cpp
-
+#include "calendar_panel.h"
+#include "menu_bar.h"
 // Define the lowest year that the picker can select. In this example, '1970' is the Unix epoch.
 #define IMGUI_DATEPICKER_YEAR_MIN 1970
 // Define the highest year that the picker can select.
@@ -18,7 +27,6 @@
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 #include <stdio.h>
-#include <string>
 #define GL_SILENCE_DEPRECATION
 #if defined(IMGUI_IMPL_OPENGL_ES2)
 #include <GLES2/gl2.h>
@@ -170,7 +178,6 @@ int main(int, char**)
         {
             static float f = 0.0f;
             static int counter = 0;
-            
 
             ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
 
@@ -189,7 +196,7 @@ int main(int, char**)
             // Starting Create New modal button
             static char eventName[128] = "";  // Buffer for event name
             static char eventLocation[128] = "";    // Buffer for location
-            const char* hours[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"};
+            const char* hours[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
             const char* minutes[60] = {};
             static int currentHour = 1;
             static int currentMinute = 0;
@@ -243,7 +250,7 @@ int main(int, char**)
                     // Close popup
                     ImGui::CloseCurrentPopup();
                 }
-         
+
                 if (ImGui::Button("Close"))
                     ImGui::CloseCurrentPopup();
                 ImGui::EndPopup();
@@ -299,6 +306,3 @@ int main(int, char**)
 
     return 0;
 }
-
-
-
