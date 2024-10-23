@@ -13,6 +13,9 @@
     <Filter Include="src">
       <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="lib\imguidate">
+      <UniqueIdentifier>{6bf3b700-ed36-436a-9d6f-f6e7917562d1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="lib\imgui\backends\imgui_impl_glfw.cpp">
@@ -39,5 +42,13 @@
     <ClCompile Include="src\main.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="lib\imguidate\ImGuiDatePicker.cpp">
+      <Filter>lib\imguidate</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lib\imguidate\ImGuiDatePicker.hpp">
+      <Filter>lib\imguidate</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
