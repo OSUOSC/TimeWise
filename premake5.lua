@@ -1,6 +1,6 @@
 workspace("timewise")
 configurations({ "Debug", "Release" })
-platforms({ "Linux", "Windows", "MacOS" })
+architecture("x64")
 
 -- TimeWise project
 project("timewise")
@@ -46,15 +46,9 @@ postbuildcommands({
 filter("action:vs2022")
 defines({ "WINDOWS" })
 buildoptions({ "/std:c++17" }) -- Visual Studio uses MSVC syntax for build options
-links({ "opengl32.lib", "glfw3.lib" })
+links({ "opengl32", "glfw3", "gdi32", "imm32" })
 includedirs({ "lib/imgui", "lib/imgui/backends", "deps/glfw/include", "src" }) -- Include source directories for Windows
 libdirs({ "deps/glfw/lib" })
-
--- Post-build command to copy the res folder on Windows
-postbuildcommands({
-	"{COPY} ./res %{cfg.targetdir}\\res",
-	"{COPY} imgui.ini %{cfg.targetdir}/imgui.ini",
-})
 
 -- Reset filters to avoid affecting other projects
 filter({})
