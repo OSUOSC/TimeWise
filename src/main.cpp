@@ -8,6 +8,7 @@
 // - Introduction, links and more at the top of imgui.cpp
 
 #include "calendar_panel.h"
+#include "new_event.h"
 #include "menu_bar.h"
 #include "imgui.h"
 #include "imgui_impl_glfw.h"

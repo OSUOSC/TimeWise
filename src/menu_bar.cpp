@@ -1,12 +1,14 @@
 #include "menu_bar.h"
 #include "imgui.h"
 #include "theme.h"
+#include "new_event.h"
 
-void MenuBar::draw(GLFWwindow *window, int &theme) {
+void MenuBar::draw(GLFWwindow* window, int& theme) {
     if (ImGui::BeginMainMenuBar()) {
         if (ImGui::BeginMenu("File")) {
             if (ImGui::BeginMenu("New")) {
                 if (ImGui::MenuItem("Event")) {
+                    NewEvent::setEvent(true);
                 }
                 ImGui::EndMenu();
             }
