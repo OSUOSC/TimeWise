@@ -4,6 +4,7 @@
 #include "calendar_panel.h"
 #include "imgui.h"
 #include "util.h"
+#include "new_event.h"
 
 void CalendarPanel::draw() {
     ImGui::Begin("Calendar");
@@ -56,6 +57,12 @@ void CalendarPanel::draw() {
             }
         }
         ImGui::EndTable();
+
+        // Open createEvent here because it is a modal of calendar
+        if (NewEvent::getEvent()) {
+            NewEvent::makeEvent();
+        }
+
     }
 
     ImGui::End();

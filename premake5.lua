@@ -9,7 +9,7 @@ language("C++")
 targetdir("bin/%{cfg.buildcfg}/timewise")
 
 -- Common include directories
-includedirs({ "lib/imgui", "lib/imgui/backends" })
+includedirs({ "lib/imgui", "lib/imgui/backends", "lib/imguidate/" })
 
 -- Common files
 files({
@@ -18,6 +18,7 @@ files({
 	"lib/imgui/*.cpp",
 	"lib/imgui/backends/imgui_impl_glfw.cpp",
 	"lib/imgui/backends/imgui_impl_opengl3.cpp",
+	"lib/imguidate/ImGuiDatePicker.cpp",
 })
 
 filter("configurations:Debug")
