@@ -20,8 +20,8 @@ void NewEvent::makeEvent() {
     if (makeNew == false) {
         return;
     }
-    ImGui::OpenPopup("Stacked 1");
-    if (ImGui::BeginPopupModal("Stacked 1"))
+    ImGui::OpenPopup("Create New Event");
+    if (ImGui::BeginPopupModal("Create New Event"))
     {
         static char eventName[128] = "";
         static char eventLocation[128] = "";
@@ -32,7 +32,6 @@ void NewEvent::makeEvent() {
         static int ampm = 0;
         static int repeatable = 0;
 
-        ImGui::Text("Create New Event");
         ImGui::Text("Event Name");
         ImGui::InputText("##EventName", eventName, sizeof(eventName));
         ImGui::Text("Location");
@@ -51,13 +50,13 @@ void NewEvent::makeEvent() {
         ImGui::Text("Time");
         ImGui::PushItemWidth(80);
         // Hours and minutes picker
-        ImGui::ListBox("Hour", &currentHour, hours, IM_ARRAYSIZE(hours), 4); ImGui::PushItemWidth(80); ImGui::SameLine();
+        ImGui::ListBox("##Hour", &currentHour, hours, IM_ARRAYSIZE(hours), 4); ImGui::PushItemWidth(80); ImGui::SameLine();
         for (int i = 0; i < 60; i++) {
             char* minuteStr = new char[3];
             snprintf(minuteStr, 3, "%02d", i);
             minutes[i] = minuteStr;
         }
-        ImGui::ListBox("Minute", &currentMinute, minutes, IM_ARRAYSIZE(minutes), 4); ImGui::PushItemWidth(60); ImGui::SameLine();
+        ImGui::ListBox("##Minute", &currentMinute, minutes, IM_ARRAYSIZE(minutes), 4); ImGui::PushItemWidth(60); ImGui::SameLine();
         // AM/PM Picker
         ImGui::RadioButton("AM", &ampm, 0); ImGui::SameLine();
         ImGui::RadioButton("PM", &ampm, 1);
