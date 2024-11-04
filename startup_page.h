@@ -9,6 +9,7 @@ class StartupPage {
 		void draw();
 	private:
 		std::vector<const char*> getTasks();
+		char* getDate();
 
 
 };
