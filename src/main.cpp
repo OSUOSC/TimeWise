@@ -58,6 +58,7 @@ int main(int, char**)
     io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;       // Enable Multi-Viewport / Platform Windows
     io.Fonts->AddFontFromFileTTF("./res/ubuntu.ttf", 21.0f);
     io.Fonts->AddFontFromFileTTF("./res/ubuntu.ttf", 32.0f);
+    io.Fonts->AddFontFromFileTTF("./res/ubuntu.ttf", 42.0f);
 
     // Setup Dear ImGui style
     ImGui::StyleColorsDark();

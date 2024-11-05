@@ -6,17 +6,17 @@ void StartupPage::draw() {
 	//set up window and font 
 	ImGui::Begin("Welcome");
 	ImGuiIO& io = ImGui::GetIO();
-	ImFont* bigUbuntu = io.Fonts->Fonts[1];
-	ImFont* font2 = io.Fonts->Fonts[0];
-	ImGui::PushFont(bigUbuntu);
+	ImFont* textFont = io.Fonts->Fonts[1];
+	ImFont* titleFont = io.Fonts->Fonts[2];
+	ImGui::PushFont(titleFont);
 
 	//title text
 	ImGui::Text("Welcome To Time Wise!!!");
 	ImGui::PopFont();
 
 	//section 1: description about the app
+	ImGui::PushFont(textFont);
 	ImGui::SeparatorText("About this app");
-	ImGui::PushFont(font2);
 	ImGui::Text("TimeWise is a calendar app that helps integrate and manage your calendar and daily events");
 	
 	//section 2: task list
