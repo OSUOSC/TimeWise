@@ -10,6 +10,7 @@
 #include "calendar_panel.h"
 #include "new_event.h"
 #include "menu_bar.h"
+#include "startup_page.h"
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
@@ -57,6 +58,7 @@ int main(int, char**)
     io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;       // Enable Multi-Viewport / Platform Windows
     io.Fonts->AddFontFromFileTTF("./res/ubuntu.ttf", 21.0f);
     io.Fonts->AddFontFromFileTTF("./res/ubuntu.ttf", 32.0f);
+    io.Fonts->AddFontFromFileTTF("./res/ubuntu.ttf", 42.0f);
 
     // Setup Dear ImGui style
     ImGui::StyleColorsDark();
@@ -83,6 +85,9 @@ int main(int, char**)
     // Declare instance of panels
     CalendarPanel calendarPanel;
     MenuBar menuBar;
+
+    // Declare instance of a welcome(startup) page
+    StartupPage startupPage;
 
     // Main loop
     while (!glfwWindowShouldClose(window))
@@ -111,6 +116,9 @@ int main(int, char**)
 
         // Render App Panels
         calendarPanel.draw();
+
+        // Render welcome page
+        startupPage.draw();
 
         // Rendering
         ImGui::Render();
