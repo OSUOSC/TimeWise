@@ -3,6 +3,7 @@
 #include <fstream>
 #include <libical/ical.h>
 #include <filesystem>
+#include <string>
 #include "ical.h"
 
 void ICal::parseEvent(icalcomponent *event) {
@@ -10,6 +11,10 @@ void ICal::parseEvent(icalcomponent *event) {
     icalproperty* summary_prop = icalcomponent_get_first_property(event, ICAL_SUMMARY_PROPERTY);
     if (summary_prop)
         e.summary = icalproperty_get_value_as_string(summary_prop);
+    
+    icalproperty *desc_prop = icalcomponent_get_first_property(event, ICAL_DESCRIPTION_PROPERTY);
+    if (desc_prop)
+        e.desc = icalproperty_get_value_as_string(desc_prop);
 
     icalproperty* dtstart_prop = icalcomponent_get_first_property(event, ICAL_DTSTART_PROPERTY);
     if (dtstart_prop) {
@@ -22,8 +27,9 @@ void ICal::parseEvent(icalcomponent *event) {
         struct icaltimetype end_time = icalproperty_get_dtend(dtend_prop);
         e.endtime = icaltime_as_timet(end_time);
     }
-    
-    events.push_back(e);
+    tm *event_time = localtime(&e.starttime);
+    std::string key = std::to_string(event_time->tm_mon) + std::to_string(event_time->tm_mday);
+    events[key].push_back(e);
 }
 
 void ICal::parseICal(const std::string& filepath) {

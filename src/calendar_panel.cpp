@@ -49,6 +49,23 @@ void CalendarPanel::draw(ICal &cal) {
             {
                 ImGui::TableSetColumnIndex(column);
                 ImGui::TextUnformatted(std::to_string(currentDay).c_str());
+                // print any events in the day
+                std::time_t t = std::time(nullptr);
+                std::tm* localTime = std::localtime(&t);
+
+                int monthIndex = localTime->tm_mon;
+                std::string key = std::to_string(monthIndex) + std::to_string(currentDay);
+                if (!cal.events[key].empty()) {
+                    for (auto &event : cal.events[key]) {
+                        std::string event_label = std::to_string(localtime(&event.starttime)->tm_hour) + ":";
+                        if (localtime(&event.starttime)->tm_min < 10) {
+                            event_label += "0";
+                        }
+                        event_label += std::to_string(localtime(&event.starttime)->tm_min) + " " + event.summary;
+                        ImGui::Button(event_label.c_str());
+                    }
+                }
+                
                 currentDay++;
                 if (currentDay >= maxDays) {
                     currentDay = 1;

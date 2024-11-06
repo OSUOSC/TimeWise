@@ -81,6 +81,10 @@ int main(int, char**)
     // Our state
     bool show_demo_window = true;
     ImVec4 clear_color = ImVec4(0.0f, 0.0f, 0.0f, 1.00f);
+    // make instance of ical
+    ICal calendar;
+    calendar.createICalDir();
+    calendar.loadICalFiles();
 
     // Declare instance of panels
     CalendarPanel calendarPanel;
@@ -89,12 +93,6 @@ int main(int, char**)
     // Declare instance of a welcome(startup) page
     StartupPage startupPage;
     
-    // make instance of ical
-    ICal calendar;
-    
-    calendar.createICalDir();
-    calendar.loadICalFiles();
-
     // Main loop
     while (!glfwWindowShouldClose(window))
     {
