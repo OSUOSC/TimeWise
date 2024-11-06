@@ -55,11 +55,21 @@ void ICal::parseICal(const std::string& filepath) {
 }
 
 void ICal::createICalDir() {
+    std::filesystem::path configDir;
+
+#ifdef _WIN32
+    const char* appDataDir = std::getenv("LOCALAPPDATA");
+    if (!appDataDir) {
+        return;
+    }
+    configDir = std::filesystem::path(appDataDir) / "timewise";
+#else
     const char* homeDir = std::getenv("HOME");
     if (!homeDir) {
         return;
     }
-    std::filesystem::path configDir = std::filesystem::path(homeDir) / ".config" / "timewise";
+    configDir = std::filesystem::path(homeDir) / ".config" / "timewise";
+#endif
 
     if (!std::filesystem::exists(configDir)) {
         try {
@@ -68,15 +78,24 @@ void ICal::createICalDir() {
             return;
         }
     }
-
 }
 
 void ICal::loadICalFiles() {
+    std::filesystem::path configDir;
+
+#ifdef _WIN32
+    const char* appDataDir = std::getenv("LOCALAPPDATA");
+    if (!appDataDir) {
+        return;
+    }
+    configDir = std::filesystem::path(appDataDir) / "timewise";
+#else
     const char* homeDir = std::getenv("HOME");
     if (!homeDir) {
         return;
     }
-    std::filesystem::path configDir = std::filesystem::path(homeDir) / ".config" / "timewise";
+    configDir = std::filesystem::path(homeDir) / ".config" / "timewise";
+#endif
     try {
         if (std::filesystem::exists(configDir) && std::filesystem::is_directory(configDir)) {
             for (const auto& entry : std::filesystem::directory_iterator(configDir)) {

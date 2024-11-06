@@ -120,7 +120,8 @@ int main(int, char**)
 
         // Render App Panels
         calendarPanel.draw(calendar);
-
+        calendarPanel.drawEventPopup();
+        
         // Render welcome page
         startupPage.draw();
 
