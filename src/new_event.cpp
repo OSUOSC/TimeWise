@@ -17,7 +17,7 @@
 bool NewEvent::makeNew = false;
 
 void NewEvent::makeEvent() {
-    if (makeNew == false) {
+    if (!makeNew) {
         return;
     }
     ImGui::OpenPopup("Create New Event");

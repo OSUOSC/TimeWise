@@ -12,6 +12,36 @@ Linux (pacman):
     pacman -S glfw
 ```
 
+Additionally you will need to install libical:
+
+Windows:
+```
+git clone https://github.com/libical/libical.git
+cd libical
+mkdir build
+cd build
+cmake -G "NMake Makefiles" ..
+nmake
+nmake install
+
+alternatively using vcpkg:
+https://vcpkg.io/en/package/libical
+```
+
+Linux:
+```
+git clone https://github.com/libical/libical.git
+cd libical
+mkdir build
+cd build
+cmake ..
+make
+make install
+
+alternatively:
+sudo apt install libical-dev
+```
+
 Clone the repo and generate the makefile using [premake5](https://premake.github.io/download/).
 
 Windows:

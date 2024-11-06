@@ -8,7 +8,6 @@
 // - Introduction, links and more at the top of imgui.cpp
 
 #include "calendar_panel.h"
-#include "new_event.h"
 #include "menu_bar.h"
 #include "startup_page.h"
 #include "imgui.h"
@@ -18,6 +17,7 @@
 #include <stdio.h>
 #define GL_SILENCE_DEPRECATION
 #include <GLFW/glfw3.h> // Will drag system OpenGL headers
+#include "ical.h"
 
 static void glfw_error_callback(int error, const char* description)
 {
@@ -81,6 +81,10 @@ int main(int, char**)
     // Our state
     bool show_demo_window = true;
     ImVec4 clear_color = ImVec4(0.0f, 0.0f, 0.0f, 1.00f);
+    // make instance of ical
+    ICal calendar;
+    calendar.createICalDir();
+    calendar.loadICalFiles();
 
     // Declare instance of panels
     CalendarPanel calendarPanel;
@@ -88,7 +92,7 @@ int main(int, char**)
 
     // Declare instance of a welcome(startup) page
     StartupPage startupPage;
-
+    
     // Main loop
     while (!glfwWindowShouldClose(window))
     {
@@ -115,8 +119,9 @@ int main(int, char**)
             ImGui::ShowDemoWindow(&show_demo_window);
 
         // Render App Panels
-        calendarPanel.draw();
-
+        calendarPanel.draw(calendar);
+        calendarPanel.drawEventPopup();
+        
         // Render welcome page
         startupPage.draw();
 

@@ -2,11 +2,12 @@
 #include <array>
 #include <string>
 #include "calendar_panel.h"
+#include "ical.h"
 #include "imgui.h"
 #include "util.h"
 #include "new_event.h"
 
-void CalendarPanel::draw() {
+void CalendarPanel::draw(ICal &cal) {
     ImGui::Begin("Calendar");
     ImGuiIO& io = ImGui::GetIO();
     ImFont* bigUbuntu = io.Fonts->Fonts[1];
@@ -49,6 +50,26 @@ void CalendarPanel::draw() {
             {
                 ImGui::TableSetColumnIndex(column);
                 ImGui::TextUnformatted(std::to_string(currentDay).c_str());
+                // print any events in the day
+                std::time_t t = std::time(nullptr);
+                std::tm* localTime = std::localtime(&t);
+
+                int monthIndex = localTime->tm_mon;
+                std::string key = std::to_string(monthIndex) + std::to_string(currentDay);
+                if (!cal.events[key].empty()) {
+                    for (auto &event : cal.events[key]) {
+                        std::string event_label = std::to_string(localtime(&event.starttime)->tm_hour) + ":";
+                        if (localtime(&event.starttime)->tm_min < 10) {
+                            event_label += "0";
+                        }
+                        event_label += std::to_string(localtime(&event.starttime)->tm_min) + " " + event.summary;
+                        if (ImGui::Button(event_label.c_str())) {
+                            popupEvent = event;
+                            isPopupOpen = true;
+                        }
+                    }
+                }
+                
                 currentDay++;
                 if (currentDay >= maxDays) {
                     currentDay = 1;
@@ -66,6 +87,28 @@ void CalendarPanel::draw() {
     }
 
     ImGui::End();
+}
+
+void CalendarPanel::drawEventPopup() {
+    if (!isPopupOpen)
+        return;
+
+    ImGui::OpenPopup("Event Details");
+    isPopupOpen = ImGui::BeginPopupModal("Event Details", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
+    if (isPopupOpen) {
+        ImGui::PushTextWrapPos(ImGui::GetWindowContentRegionMax().x);
+        ImGui::TextUnformatted(popupEvent.summary.c_str());
+        ImGui::Separator();
+        ImGui::TextUnformatted(popupEvent.desc.c_str());
+        ImGui::PopTextWrapPos();
+        ImGui::NewLine();
+        if (ImGui::Button("Close")) {
+            isPopupOpen = false;
+            ImGui::CloseCurrentPopup();
+        }
+
+        ImGui::EndPopup();
+    }
 }
 
 std::string CalendarPanel::getMonth() {
