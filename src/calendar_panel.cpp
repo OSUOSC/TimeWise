@@ -6,7 +6,7 @@
 #include "util.h"
 #include "new_event.h"
 
-void CalendarPanel::draw() {
+void CalendarPanel::draw(ICal &cal) {
     ImGui::Begin("Calendar");
     ImGuiIO& io = ImGui::GetIO();
     ImFont* bigUbuntu = io.Fonts->Fonts[1];

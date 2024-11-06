@@ -33,14 +33,13 @@ optimize("On")
 filter("action:gmake")
 defines({ "LINUX" })
 buildoptions({ "-std=c++20", "-g", "-Wall", "-Wformat" })
-links({ "GL", "glfw" })
+links({ "GL", "glfw", "ical" })
 linkoptions({ "`pkg-config --static --libs glfw3`" })
 includedirs({ "`pkg-config --cflags glfw3`" })
 
 -- Post-build command to copy the res folder on Linux
 postbuildcommands({
 	"{COPY} ./res %{cfg.targetdir}/res",
-	"{COPY} imgui.ini %{cfg.targetdir}/imgui.ini",
 })
 
 -- Windows-specific setup for Visual Studio

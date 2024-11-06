@@ -1,9 +1,10 @@
 #pragma once
+#include "ical.h"
 #include <string>
 
 class CalendarPanel {
 public:
-    void draw();
+    void draw(ICal &cal);
 private:
     std::string getMonth();
     std::string getYear();
