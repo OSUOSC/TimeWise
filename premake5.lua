@@ -32,7 +32,7 @@ optimize("On")
 -- Linux-specific setup
 filter("action:gmake")
 defines({ "LINUX" })
-buildoptions({ "-std=c++11", "-g", "-Wall", "-Wformat" })
+buildoptions({ "-std=c++20", "-g", "-Wall", "-Wformat" })
 links({ "GL", "glfw" })
 linkoptions({ "`pkg-config --static --libs glfw3`" })
 includedirs({ "`pkg-config --cflags glfw3`" })
@@ -46,7 +46,7 @@ postbuildcommands({
 -- Windows-specific setup for Visual Studio
 filter("action:vs2022")
 defines({ "WINDOWS" })
-buildoptions({ "/std:c++17" }) -- Visual Studio uses MSVC syntax for build options
+buildoptions({ "/std:c++20" }) -- Visual Studio uses MSVC syntax for build options
 links({ "opengl32", "glfw3", "gdi32", "imm32" })
 includedirs({ "lib/imgui", "lib/imgui/backends", "deps/glfw/include", "src" }) -- Include source directories for Windows
 libdirs({ "deps/glfw/lib" })
