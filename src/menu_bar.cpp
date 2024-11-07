@@ -2,6 +2,7 @@
 #include "imgui.h"
 #include "theme.h"
 #include "new_event.h"
+#include "import_cal.h"
 
 void MenuBar::draw(GLFWwindow* window, int& theme) {
     if (ImGui::BeginMainMenuBar()) {
@@ -60,6 +61,12 @@ void MenuBar::draw(GLFWwindow* window, int& theme) {
                 ImGui::StyleColorsDark();
                 SetImguiTheme(theme);
                 ImGui::EndMenu();
+                if (ImGui::BeginMenu("Import")) {
+                    if (ImGui::MenuItem("iCal")) {
+                        ImportCalendar::setImport(true);
+                    }
+                    ImGui::EndMenu();
+                }
             }
             ImGui::EndMenu();
         }
