@@ -46,7 +46,7 @@ postbuildcommands({
 filter("action:vs2022")
 defines({ "WINDOWS" })
 buildoptions({ "/std:c++20" }) -- Visual Studio uses MSVC syntax for build options
-links({ "opengl32", "glfw3", "gdi32", "imm32" })
+links({ "opengl32", "glfw3", "gdi32", "imm32", "ical" })
 includedirs({ "lib/imgui", "lib/imgui/backends", "deps/glfw/include", "src" }) -- Include source directories for Windows
 libdirs({ "deps/glfw/lib" })
 
