@@ -6,6 +6,7 @@
 #include "imgui.h"
 #include "util.h"
 #include "new_event.h"
+#include "import_cal.h"
 
 void CalendarPanel::draw(ICal &cal) {
     ImGui::Begin("Calendar");
@@ -82,6 +83,9 @@ void CalendarPanel::draw(ICal &cal) {
         // Open createEvent here because it is a modal of calendar
         if (NewEvent::getEvent()) {
             NewEvent::makeEvent();
+        }
+        if (ImportCalendar::getImport()) {
+            ImportCalendar::drawImport();
         }
 
     }
